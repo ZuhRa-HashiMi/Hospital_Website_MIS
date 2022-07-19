@@ -18,3 +18,4 @@
           <li>Simply dummy text orem Ipsum has  standard dummy text ever since thes, when an unknown. </li>
           <li>Undustry's standard dummy text ever since thes, when rinter.</li>
         </ul>
+        <?php require_once("footer_website.php");?>
