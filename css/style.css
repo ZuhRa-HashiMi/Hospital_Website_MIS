@@ -79,39 +79,5 @@ li.bg,
 	margin:0;
 }
 
-.table {
-	margin-top:5px;
-}
-
-.table th {
-	background-color:#CCC;
-}
-
-.input-group {
-	width:100%;
-}
-
-.input-group-addon {
-	width:100px;
-}
-
-a.btn {
-	color:white;
-}
-
-a.btn span {
-	color:white;
-}
-
-.Welcome {
-	min-height:400px !important;
-}
-
-@media print {
-	.noprint {
-		display:none;
-	}
-}
-
 
 
