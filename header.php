@@ -21,9 +21,15 @@
 <body>
 <div class="main">
   <div class="header">
+  <?php if(!isset($_SESSION["user_id"])) { ?>
   <a href="login.php" id="login" class="pull-right">
   Login
   </a>
+  <?php } else { ?>
+  <a href="logout.php" id="login" class="pull-right">
+  Logout
+  </a>
+  <?php } ?>
     <div class="block_header">
       <div class="logo"><a href="index.html"><img src="images/logo_1.gif" width="331" border="0" alt="logo" /></a></div>
       <div class="search">
