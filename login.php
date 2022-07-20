@@ -9,8 +9,8 @@
 		
 		
         if(isset($_POST["username"])) {
-		$username = ($_POST["username"]);
-		$password = ($_POST["password"]);
+		$username = getValue($_POST["username"]);
+		$password = getValue($_POST["password"]);
 		$result = mysqli_query($con, "SELECT * FROM users WHERE username = '$username' AND password = PASSWORD('$password') ");
 		if(mysqli_num_rows($result) == 1) {
 			$row_result = mysqli_fetch_assoc($result);
@@ -55,12 +55,6 @@
 				</div>
 			<?php } ?>
 			
-			<?php if(isset($_GET["notlogin"])) { ?>
-				<div class="alert alert-warning">
-					Please login first!
-				</div>
-			<?php } ?>
-	
                 <form method="post">
 				
 				<div class="input-group">
