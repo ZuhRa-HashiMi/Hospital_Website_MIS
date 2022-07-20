@@ -4,6 +4,7 @@
 	   }
 ?>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,22 +49,26 @@
             </div>
             <div class="collapse navbar-collapse" id="collapse">
 			
-			<?php if(!isset($_SESSION["user_id"])){?>
+				<?php if(!isset($_SESSION["user_id"])) { ?>
+			
 				<ul class="nav navbar-nav" id="nav-top">
                 	<li><a href="index.php">Home</a></li>
-					<li><a href="index.php">Gallery</a></li>
-					<li><a href="index.php">Services</a></li>
-					<li><a href="index.php">News</a></li>
-					<li class="dropdown"><a href="#" data-toggle="dropdown">About Us <span class="caret"></span></a>
-					<ul class="dropdown-menu">
+                	<li><a href="index.php">Gallery</a></li>
+                	<li><a href="index.php">Services</a></li>
+                	<li><a href="index.php">News</a></li>
+                	<li class="dropdown"><a href="#" data-toggle="dropdown">About Us<span class="caret"></span></a>
+						<ul class="dropdown-menu">
 							<li><a href="#">Information</a></li>
 							<li><a href="#">History</a></li>
 							<li><a href="#">Cheif Biography</a></li>
 						</ul>
 					</li>
-					<li><a href="index.php">Contact Us</a></li></ul>
-					<?php } else { ?>
-					<ul class="nav navbar-nav" id="nav-top">
+                	<li><a href="index.php">Contuct Us</a></li>                	
+                </ul>
+				
+				<?php } else { ?>
+			
+				<ul class="nav navbar-nav" id="nav-top">
 					<li class="dropdown"><a href="#" data-toggle="dropdown">Department <span class="caret"></span></a>
                     	<ul class="dropdown-menu">
                             <li><a href="department_add.php">Add New Department</a></li>
@@ -71,8 +76,7 @@
                         	<li><a href="room_add.php">Rooms</a></li>
                         </ul>                    
                     </li>
-					<ul class="nav navbar-nav" id="nav-top">
-                     <li class="dropdown"><a href="#" data-toggle="dropdown">Patient <span class="caret"></span></a>
+                	<li class="dropdown"><a href="#" data-toggle="dropdown">Patient <span class="caret"></span></a>
                     	<ul class="dropdown-menu">
 							<li><a href="#">Register New Patient</a></li>
                         	<li><a href="#">Patient List</a></li>
@@ -82,8 +86,6 @@
                         	<li><a href="#">Patient Admit</a></li>
                         </ul>                    
                     </li>
-                	<li><a href="index.php"></a></li>                	
-                	
 					<li class="dropdown"><a href="#" data-toggle="dropdown">Staff <span class="caret"></span></a>
                     	<ul class="dropdown-menu">
                         	<li><a href="staff_add.php">Add New Staff</a></li>
