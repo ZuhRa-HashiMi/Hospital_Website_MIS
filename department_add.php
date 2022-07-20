@@ -1,3 +1,23 @@
+<?php require_once("connection.php"); ?>
+<?php
+	
+	if(isset($_POST["department_name"])) {
+		$department_name = getValue($_POST["department_name"]);
+		
+		$result = mysqli_query($con, "INSERT INTO department VALUES (NULL, '$department_name')");
+		
+		if($result) {
+			header("location:department_list.php?add=done");
+		}
+		else {
+			header("location:department_add.php?error=notadd");
+		}
+		
+	}
+	
+?>
+
+
 <?php require_once("header.php");?>
 
 
