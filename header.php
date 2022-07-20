@@ -55,7 +55,7 @@
             </div>
             <div class="collapse navbar-collapse" id="collapse">
 			
-				<?php if(!isset($_SESSION["user_id"])) { ?>
+				<?php if(isset($_SESSION["user_id"])) { ?>
 			
 				<ul class="nav navbar-nav" id="nav-top">
                 	<li><a href="index.php">Home</a></li>
