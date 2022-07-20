@@ -1,6 +1,13 @@
  <?php 
  
     	require_once("connection.php");
+		if(isset($_SESSION["user_id"])) {
+		header("Location:home.php");
+	}
+		
+		
+		
+		
         if(isset($_POST["username"])) {
 		$username = ($_POST["username"]);
 		$password = ($_POST["password"]);
@@ -42,6 +49,18 @@
 					Incorrect Username or Password
 				</div>
 			<?php } ?>
+			<?php if(isset($_GET["logout"])) { ?>
+				<div class="alert alert-success">
+					You are successfully logged out!
+				</div>
+			<?php } ?>
+			
+			<?php if(isset($_GET["notlogin"])) { ?>
+				<div class="alert alert-warning">
+					Please login first!
+				</div>
+			<?php } ?>
+	
                 <form method="post">
 				
 				<div class="input-group">
