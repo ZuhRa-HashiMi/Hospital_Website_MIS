@@ -1,3 +1,8 @@
+ <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-0">
+
+	<div class="panel panel-primary">      
+
+
 <div class="panel-heading text-center">
 			<h1>Login to MIS</h1>
 		</div>
