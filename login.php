@@ -42,6 +42,12 @@
 				<input type="submit" value="Login" class="btn btn-primary">
 				
 			</form>
+			
+		</div>
+	
+	</div>
+	
+	</div>
 
 
 <?php require_once("footer_website.php"); ?>
