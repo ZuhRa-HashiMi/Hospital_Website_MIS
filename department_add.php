@@ -32,6 +32,11 @@
 	</div>
 
 	<div class="panel-body">
+	<?php if(isset($_GET["error"])) { ?>
+			<div class="alert alert-danger">
+				Could not add new department!
+			</div>
+		<?php } ?>
 	
 		<form method="post">
 			
