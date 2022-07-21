@@ -1,5 +1,4 @@
-<?php require_once("header.php");?>
-
+<?php require_once("header.php"); ?>
 
 <div class="panel panel-primary">
 	<div class="panel-heading">
@@ -7,7 +6,32 @@
 	</div>
 	
 	<div class="panel-body">
-	<form method="post" enctype="multipart/form-data">
+	
+		<?php if(isset($_GET["filetype"])) { ?>
+			<div class="alert alert-warning">
+				Invalid file type (Choose only jpg, png, gif)!
+			</div>
+		<?php } ?>
+		
+		<?php if(isset($_GET["filesize"])) { ?>
+			<div class="alert alert-warning">
+				Invalid file size (maximum allowed size is 4 MB)!
+			</div>
+		<?php } ?>
+		
+		<?php if(isset($_GET["upload"])) { ?>
+			<div class="alert alert-danger">
+				Could not upload staff photo! Please try again!
+			</div>
+		<?php } ?>
+		
+		<?php if(isset($_GET["error"])) { ?>
+			<div class="alert alert-danger">
+				Registration failed! Please try again!
+			</div>
+		<?php } ?>
+	
+		<form method="post" enctype="multipart/form-data">
 			
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			
@@ -50,5 +74,119 @@
 					
 				</select>
 			</div>
-			</form>
-<?php require_once("footer_mis.php");?>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					NIC:
+				</span>
+				<input required type="text" name="nic" class="form-control">
+			</div>
+			
+			
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Position:
+				</span>
+				<input required type="text" name="position" class="form-control">
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Salary:
+				</span>
+				<input required type="text" name="gross_salary" class="form-control">
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Currency:
+				</span>
+				<select name="currency" class="form-control">
+					<option>AFN</option>
+					<option>USD</option>
+				</select>
+			</div>
+			
+			</div>
+			
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Photo:
+				</span>
+				<input type="file" name="photo" class="form-control">
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Phone:
+				</span>
+				<input required type="text" name="phone" class="form-control">
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Email:
+				</span>
+				<input type="email" name="email" class="form-control">
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Address:
+				</span>
+				<input required type="text" name="address" class="form-control">
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Hire Date:
+				</span>
+				<input value="<?php echo date("Y-m-d"); ?>" required autocomplete="off" type="text" id="hire_date" name="hire_date" class="form-control">
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Staff Type:
+				</span>
+				<select name="staff_type" class="form-control">
+					<option value="1">Doctor</option>
+					<option value="2">Nurse</option>
+					<option value="3">Employee</option>
+				</select>
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Department:
+				</span>
+				<select name="department_id" class="form-control">
+					
+					<option value="NULL">None</option>
+						
+					<?php do { ?>
+						<option value="<?php echo $row_department["department_id"]; ?>"><?php echo $row_department["department_name"]; ?></option>
+					<?php } while($row_department = mysqli_fetch_assoc($department)); ?>
+				</select>
+			</div>
+			
+			<input type="submit" value="Register Staff" class="btn btn-primary">
+			
+			</div>
+			
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript">
+	Calendar.setup({
+        inputField      :    "hire_date",
+        ifFormat        :    "%Y-%m-%d",
+        showsTime       :    false,
+        timeFormat      :    "24"
+    });
+</script>
+
+<?php require_once("footer_mis.php"); ?>
