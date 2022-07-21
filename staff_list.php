@@ -15,6 +15,33 @@
 
 
 <h2>Staff List</h2>
+<?php if(isset($_GET["add"])) { ?>
+	<div class="alert alert-success alert-dismissable">
+		<button class="close" data-dismiss="alert" area-hidden="true">&times;</button>
+		New staff has been successfully added!
+	</div>
+<?php } ?>
+
+<?php if(isset($_GET["edit"])) { ?>
+	<div class="alert alert-success alert-dismissable">
+		<button class="close" data-dismiss="alert" area-hidden="true">&times;</button>
+		Selected staff has been successfully updated!
+	</div>
+<?php } ?>
+
+<?php if(isset($_GET["delete"])) { ?>
+	<div class="alert alert-success alert-dismissable">
+		<button class="close" data-dismiss="alert" area-hidden="true">&times;</button>
+		Selected staff has been successfully deleted!
+	</div>
+<?php } ?>
+
+<?php if(isset($_GET["error"])) { ?>
+	<div class="alert alert-danger alert-dismissable">
+		<button class="close" data-dismiss="alert" area-hidden="true">&times;</button>
+		Could not delete selected staff!
+	</div>
+<?php } ?>
 <table class="table table-striped">
   <tr>
      <th>ID</th>
