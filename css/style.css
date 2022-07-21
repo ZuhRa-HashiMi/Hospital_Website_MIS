@@ -78,6 +78,13 @@ li.bg,
 	font-size:24px;
 	margin:0;
 }
+.table {
+	margin-top:5px;
+}
+
+.table th {
+	background-color:#CCC;
+}
 
 
 
