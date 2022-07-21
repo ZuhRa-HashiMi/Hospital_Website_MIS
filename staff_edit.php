@@ -1,8 +1,14 @@
 
 <?php require_once("connection.php"); ?>
 <?php
-
-
+     
+    $staff_id = getValue($_GET["staff_id"]);
+	$staff = mysqli_query($con, "SELECT * FROM staff WHERE staff_id = $staff_id");
+	$row_staff = mysqli_fetch_assoc($staff);
+	
+	
+	
+	
 	$department = mysqli_query($con, "SELECT * FROM department ORDER BY department_id ASC");
 	$row_department = mysqli_fetch_assoc($department);
 	
@@ -117,22 +123,22 @@
 				<span class="input-group-addon">
 					Firstname:
 				</span>
-				<input required type="text" name="firstname" class="form-control">
+				<input required value="<?php echo $row_staff["firstname"]; ?>" type="text" name="firstname" class="form-control">
 			</div>
 		
 			<div class="input-group">
 				<span class="input-group-addon">
 					Lastname:
 				</span>
-				<input required type="text" name="lastname" class="form-control">
+				<input required  value="<?php echo $row_staff["lastname"]; ?>" type="text" name="lastname" class="form-control">
 			</div>
 			
 			<div class="input-group">
 				<span class="input-group-addon">
 					Gender:
 				</span>  &nbsp;
-				<label><input checked type="radio" name="gender" value="0"> Male</label> &nbsp;
-				<label><input type="radio" name="gender" value="1"> Female</label>
+				<label><input <?php if($row_staff["gender"] == 0) echo "checked"; ?> type="radio" name="gender" value="0"> Male</label> &nbsp;
+				<label><input <?php if($row_staff["gender"] == 1) echo "checked"; ?> type="radio" name="gender" value="1"> Female</label>
 			</div>
 			
 			<div class="input-group">
@@ -157,7 +163,7 @@
 				<span class="input-group-addon">
 					NIC:
 				</span>
-				<input required type="text" name="nic" class="form-control">
+				<input required  value="<?php echo $row_staff["nic"]; ?>"  type="text" name="nic" class="form-control">
 			</div>
 			
 			
@@ -166,14 +172,14 @@
 				<span class="input-group-addon">
 					Position:
 				</span>
-				<input required type="text" name="position" class="form-control">
+				<input required value="<?php echo $row_staff["position"]; ?>"  type="text" name="position" class="form-control">
 			</div>
 			
 			<div class="input-group">
 				<span class="input-group-addon">
 					Salary:
 				</span>
-				<input required type="text" name="gross_salary" class="form-control">
+				<input required value="<?php echo $row_staff["gross_salary"]; ?>" type="text" name="gross_salary" class="form-control">
 			</div>
 			
 			<div class="input-group">
@@ -201,21 +207,21 @@
 				<span class="input-group-addon">
 					Phone:
 				</span>
-				<input required type="text" name="phone" class="form-control">
+				<input required value="<?php echo $row_staff["phone"]; ?>" type="text" name="phone" class="form-control">
 			</div>
 			
 			<div class="input-group">
 				<span class="input-group-addon">
 					Email:
 				</span>
-				<input type="email" name="email" class="form-control">
+				<input value="<?php echo $row_staff["email"]; ?>" type="email" name="email" class="form-control">
 			</div>
 			
 			<div class="input-group">
 				<span class="input-group-addon">
 					Address:
 				</span>
-				<input required type="text" name="address" class="form-control">
+				<input required  value="<?php echo $row_staff["address"]; ?>" type="text" name="address" class="form-control">
 			</div>
 			
 			<div class="input-group">
