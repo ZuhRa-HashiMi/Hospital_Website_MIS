@@ -24,6 +24,8 @@
 	    <th>Salary</th>
 			<th>Staff Type</th>
 		 <th>Department</th>
+		 <th class="noprint">Edit</th>
+		<th class="noprint">Delete</th>
   </tr>
   <?php do{?>
   <tr>
@@ -45,7 +47,18 @@
 			}
 		
 		?></td>
-	   <td><?php echo $row_staff["department_name"];?></td>
+	   <td><?php echo $row_staff["department_name"]; ?></td>
+		<td class="noprint">
+			<a href="staff_edit.php?staff_id=<?php echo $row_staff["staff_id"]; ?>">
+				<span class="glyphicon glyphicon-edit"></span>
+			</a>
+		</td>
+		<td class="noprint">
+			<a class="delete" href="staff_delete.php?staff_id=<?php echo $row_staff["staff_id"]; ?>">
+				<span class="glyphicon glyphicon-trash"></span>
+			</a>
+		</td>
+	
 	    
   
   </tr>
