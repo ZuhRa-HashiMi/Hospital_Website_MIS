@@ -28,7 +28,7 @@
   <tr>
        <td><?php echo $row_staff["staff_id"];?></td>
        <td><?php echo $row_staff["firstname"];?> <?php echo $row_staff["lastname"];?></td>
-	   <td><?php echo $row_staff["photo"];?></td>
+	   <td><img src="<?php echo $row_staff["photo"];?>" width="40" class="img-circle"> </td>
 	   <td><?php echo $row_staff["position"];?></td>
 	   <td><?php echo $row_staff["gross_salary"];?></td>
 	   <td><?php echo $row_staff["department_id"];?></td>
