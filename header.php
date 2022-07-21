@@ -14,10 +14,14 @@
 
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+<link href="cal/calendar-blue2.css" rel="stylesheet" type="text/css" />
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="cal/calendar.js"></script>
+<script type="text/javascript" src="cal/calendar-en.js"></script>
+<script type="text/javascript" src="cal/calendar-setup.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
