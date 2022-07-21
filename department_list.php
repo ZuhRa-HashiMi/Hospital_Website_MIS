@@ -15,9 +15,21 @@
 <?php if(isset($_GET["add"])) { ?>
 	<div class="alert alert-success alert-dismissable">
 		<button class="close" data-dismiss="alert" area-hidden="true">&times;</button>
+		Selected department has been successfully Updated!
+	</div>
+<?php } ?>
+
+<?php if(isset($_GET["edit"])) { ?>
+	<div class="alert alert-success alert-dismissable">
+		<button class="close" data-dismiss="alert" area-hidden="true">&times;</button>
 		New department has been successfully added!
 	</div>
 <?php } ?>
+
+
+
+
+
 <table class="table table-striped">
 <tr>
     <th>ID</th>
