@@ -1,18 +1,17 @@
-
 <?php require_once("connection.php"); ?>
 <?php
-     
-    $staff_id = getValue($_GET["staff_id"]);
+
+
+
+	$staff_id = getValue($_GET["staff_id"]);
 	$staff = mysqli_query($con, "SELECT * FROM staff WHERE staff_id = $staff_id");
 	$row_staff = mysqli_fetch_assoc($staff);
-	
-	
-	
-	
+
 	$department = mysqli_query($con, "SELECT * FROM department ORDER BY department_id ASC");
 	$row_department = mysqli_fetch_assoc($department);
 	
 	if(isset($_POST["firstname"])) {
+		
 		$firstname = getValue($_POST["firstname"]);
 		$lastname = getValue($_POST["lastname"]);
 		$gender = getValue($_POST["gender"]);
@@ -45,44 +44,37 @@
 				if($_FILES["photo"]["size"] <= 4 * 1024 * 1024) {		
 					$path = "images/staff/" . time() . $_FILES["photo"]["name"];		
 					$result = move_uploaded_file($_FILES["photo"]["tmp_name"], $path);
-					if(!$result) {
-						header("location:staff_add.php?upload=failed");
+					
+					if($row_staff["photo"] != "images/staff/user_m.png" && $row_staff["photo"] != "images/staff/user_f.png") {
+						unlink($row_staff["photo"]);
 					}
+					
 				}
 				else {
-					header("location:staff_add.php?filesize=invalid");
+					header("location:staff_edit.php?filesize=invalid&staff_id=$staff_id");
 				}
 			}
 			else {
-				header("location:staff_add.php?filetype=invalid");
+				header("location:staff_edit.php?filetype=invalid&staff_id=$staff_id");
 			}		
+		
 		}
 		else {
-			if($gender == 0) {
-				$path = "images/staff/user_m.png";
-			}
-			else {
-				$path = "images/staff/user_f.png";
-			}
+			$path = $row_staff["photo"];
 		}
 		
-		
-		$result = mysqli_query($con, "INSERT INTO staff VALUES (NULL, '$firstname', '$lastname', $gender, $dob, '$nic', '$path', '$position', $gross_salary, '$currency', '$phone', $email, '$address', '$hire_date', $staff_type, $department_id)");
+		$result = mysqli_query($con, "UPDATE staff SET firstname='$firstname', lastname='$lastname', gender=$gender, dob=$dob, nic='$nic', photo='$path', position='$position', gross_salary=$gross_salary, currency='$currency', phone='$phone', email=$email, address='$address', hire_date='$hire_date', staff_type=$staff_type, department_id=$department_id WHERE staff_id = $staff_id");
 		if($result) {
-			header("location:staff_list.php?add=done");
+			header("location:staff_list.php?edit=done");
 		}
 		else {
-			header("location:staff_add.php?error=notadd");
+			header("location:staff_edit.php?error=notedit&staff_id=$staff_id");
 		}
-		
 		
 	}
 
 ?>
-
-
 <?php require_once("header.php"); ?>
-
 
 <div class="panel panel-primary">
 	<div class="panel-heading">
@@ -91,8 +83,7 @@
 	
 	<div class="panel-body">
 	
-	
-	<?php if(isset($_GET["filetype"])) { ?>
+		<?php if(isset($_GET["filetype"])) { ?>
 			<div class="alert alert-warning">
 				Invalid file type (Choose only jpg, png, gif)!
 			</div>
@@ -115,6 +106,7 @@
 				Registration failed! Please try again!
 			</div>
 		<?php } ?>
+	
 		<form method="post" enctype="multipart/form-data">
 			
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -130,7 +122,7 @@
 				<span class="input-group-addon">
 					Lastname:
 				</span>
-				<input required  value="<?php echo $row_staff["lastname"]; ?>" type="text" name="lastname" class="form-control">
+				<input required value="<?php echo $row_staff["lastname"]; ?>" type="text" name="lastname" class="form-control">
 			</div>
 			
 			<div class="input-group">
@@ -153,7 +145,7 @@
 						
 						for($x=$max; $x>$min; $x--) {
 						?>
-							<option><?php echo $x; ?></option>	
+							<option <?php if($row_staff["dob"] == $x) { echo "selected"; } ?>><?php echo $x; ?></option>	
 						<?php } ?>
 					
 				</select>
@@ -163,7 +155,7 @@
 				<span class="input-group-addon">
 					NIC:
 				</span>
-				<input required  value="<?php echo $row_staff["nic"]; ?>"  type="text" name="nic" class="form-control">
+				<input value="<?php echo $row_staff["nic"]; ?>" required type="text" name="nic" class="form-control">
 			</div>
 			
 			
@@ -172,14 +164,14 @@
 				<span class="input-group-addon">
 					Position:
 				</span>
-				<input required value="<?php echo $row_staff["position"]; ?>"  type="text" name="position" class="form-control">
+				<input value="<?php echo $row_staff["position"]; ?>" required type="text" name="position" class="form-control">
 			</div>
 			
 			<div class="input-group">
 				<span class="input-group-addon">
 					Salary:
 				</span>
-				<input required value="<?php echo $row_staff["gross_salary"]; ?>" type="text" name="gross_salary" class="form-control">
+				<input value="<?php echo $row_staff["gross_salary"]; ?>" required type="text" name="gross_salary" class="form-control">
 			</div>
 			
 			<div class="input-group">
@@ -187,8 +179,8 @@
 					Currency:
 				</span>
 				<select name="currency" class="form-control">
-					<option>AFN</option>
-					<option>USD</option>
+					<option <?php if($row_staff["currency"] == "AFN") echo "selected"; ?>>AFN</option>
+					<option <?php if($row_staff["currency"] == "USD") echo "selected"; ?>>USD</option>
 				</select>
 			</div>
 			
@@ -201,13 +193,16 @@
 					Photo:
 				</span>
 				<input type="file" name="photo" class="form-control">
+				<span class="input-group-addon" style="width:25px;padding:0 2px;">
+					<img src="<?php echo $row_staff["photo"]; ?>" width="25">
+				</span>
 			</div>
 			
 			<div class="input-group">
 				<span class="input-group-addon">
 					Phone:
 				</span>
-				<input required value="<?php echo $row_staff["phone"]; ?>" type="text" name="phone" class="form-control">
+				<input value="<?php echo $row_staff["phone"]; ?>" required type="text" name="phone" class="form-control">
 			</div>
 			
 			<div class="input-group">
@@ -221,14 +216,14 @@
 				<span class="input-group-addon">
 					Address:
 				</span>
-				<input required  value="<?php echo $row_staff["address"]; ?>" type="text" name="address" class="form-control">
+				<input value="<?php echo $row_staff["address"]; ?>" required type="text" name="address" class="form-control">
 			</div>
 			
 			<div class="input-group">
 				<span class="input-group-addon">
 					Hire Date:
 				</span>
-				<input value="<?php echo date("Y-m-d"); ?>" required autocomplete="off" type="text" id="hire_date" name="hire_date" class="form-control">
+				<input value="<?php echo $row_staff["hire_date"]; ?>" value="<?php echo date("Y-m-d"); ?>" required autocomplete="off" type="text" id="hire_date" name="hire_date" class="form-control">
 			</div>
 			
 			<div class="input-group">
@@ -236,9 +231,9 @@
 					Staff Type:
 				</span>
 				<select name="staff_type" class="form-control">
-					<option value="1">Doctor</option>
-					<option value="2">Nurse</option>
-					<option value="3">Employee</option>
+					<option value="1" <?php if($row_staff["staff_type"] == 1) echo "selected"; ?>>Doctor</option>
+					<option value="2" <?php if($row_staff["staff_type"] == 2) echo "selected"; ?>>Nurse</option>
+					<option value="3" <?php if($row_staff["staff_type"] == 3) echo "selected"; ?>>Employee</option>
 				</select>
 			</div>
 			
@@ -251,7 +246,7 @@
 					<option value="NULL">None</option>
 						
 					<?php do { ?>
-						<option value="<?php echo $row_department["department_id"]; ?>"><?php echo $row_department["department_name"]; ?></option>
+						<option <?php if($row_staff["department_id"] == $row_department["department_id"]) echo "selected"; ?> value="<?php echo $row_department["department_id"]; ?>"><?php echo $row_department["department_name"]; ?></option>
 					<?php } while($row_department = mysqli_fetch_assoc($department)); ?>
 				</select>
 			</div>
@@ -272,7 +267,5 @@
         timeFormat      :    "24"
     });
 </script>
-
-
 
 <?php require_once("footer_mis.php"); ?>
