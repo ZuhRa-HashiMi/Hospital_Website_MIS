@@ -1,6 +1,6 @@
 <?php require_once("connection.php"); ?>
 <?php 
-  $staff = mysqli_query($con, "SELECT * FROM staff");
+  $staff = mysqli_query($con, "SELECT * FROM staff LEFT JOIN department ON department.department_id=staff.department_id");
 	$row_staff = mysqli_fetch_assoc($staff);
 	
 	
@@ -31,7 +31,7 @@
 	   <td><img src="<?php echo $row_staff["photo"];?>" width="40" class="img-circle"> </td>
 	   <td><?php echo $row_staff["position"];?></td>
 	   <td><?php echo $row_staff["gross_salary"];?></td>
-	   <td><?php echo $row_staff["department_id"];?></td>
+	   <td><?php echo $row_staff["department_name"];?></td>
 	    
   
   </tr>
