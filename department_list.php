@@ -27,6 +27,22 @@
 	</div>
 <?php } ?>
 
+<?php if(isset($_GET["delete"])) { ?>
+	<div class="alert alert-success alert-dismissable">
+		<button class="close" data-dismiss="alert" area-hidden="true">&times;</button>
+		Selected department has been successfully Deleted!
+		
+	</div>
+<?php } ?>
+
+<?php if(isset($_GET["Error"])) { ?>
+	<div class="alert alert-danger alert-dismissable">
+		<button class="close" data-dismiss="alert" area-hidden="true">&times;</button>
+		Could not delete selected department!
+		
+	</div>
+<?php } ?>
+
 
 
 
