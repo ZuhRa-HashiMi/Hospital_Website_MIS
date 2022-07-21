@@ -1,4 +1,82 @@
+
+<?php require_once("connection.php"); ?>
+<?php
+
+
+	$department = mysqli_query($con, "SELECT * FROM department ORDER BY department_id ASC");
+	$row_department = mysqli_fetch_assoc($department);
+	
+	if(isset($_POST["firstname"])) {
+		$firstname = getValue($_POST["firstname"]);
+		$lastname = getValue($_POST["lastname"]);
+		$gender = getValue($_POST["gender"]);
+		$dob = getValue($_POST["dob"]);
+		$nic = getValue($_POST["nic"]);
+		$position = getValue($_POST["position"]);
+		$gross_salary = getValue($_POST["gross_salary"]);
+		$currency = getValue($_POST["currency"]);
+		$phone = getValue($_POST["phone"]);
+		
+		$email = getValue($_POST["email"]);
+		if($email == "") {
+			$email = " NULL ";
+		}
+		else {
+			$email = "'" . $email . "'";
+		}
+		
+		$address = getValue($_POST["address"]);
+		$hire_date = getValue($_POST["hire_date"]);
+		$staff_type = getValue($_POST["staff_type"]);
+		$department_id = getValue($_POST["department_id"]);
+		
+		
+		if($_FILES["photo"]["name"] != "") { 
+		
+			$filetype = $_FILES["photo"]["type"];
+			
+			if($filetype == "image/jpeg" || $filetype == "image/png" || $filetype == "image/gif") {
+				if($_FILES["photo"]["size"] <= 4 * 1024 * 1024) {		
+					$path = "images/staff/" . time() . $_FILES["photo"]["name"];		
+					$result = move_uploaded_file($_FILES["photo"]["tmp_name"], $path);
+					if(!$result) {
+						header("location:staff_add.php?upload=failed");
+					}
+				}
+				else {
+					header("location:staff_add.php?filesize=invalid");
+				}
+			}
+			else {
+				header("location:staff_add.php?filetype=invalid");
+			}		
+		}
+		else {
+			if($gender == 0) {
+				$path = "images/staff/user_m.png";
+			}
+			else {
+				$path = "images/staff/user_f.png";
+			}
+		}
+		
+		
+		$result = mysqli_query($con, "INSERT INTO staff VALUES (NULL, '$firstname', '$lastname', $gender, $dob, '$nic', '$path', '$position', $gross_salary, '$currency', '$phone', $email, '$address', '$hire_date', $staff_type, $department_id)");
+		if($result) {
+			header("location:staff_list.php?add=done");
+		}
+		else {
+			header("location:staff_add.php?error=notadd");
+		}
+		
+		
+	}
+
+?>
+
+
 <?php require_once("header.php"); ?>
+
 
 <div class="panel panel-primary">
 	<div class="panel-heading">
@@ -7,7 +85,8 @@
 	
 	<div class="panel-body">
 	
-		<?php if(isset($_GET["filetype"])) { ?>
+	
+	<?php if(isset($_GET["filetype"])) { ?>
 			<div class="alert alert-warning">
 				Invalid file type (Choose only jpg, png, gif)!
 			</div>
@@ -30,7 +109,6 @@
 				Registration failed! Please try again!
 			</div>
 		<?php } ?>
-	
 		<form method="post" enctype="multipart/form-data">
 			
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -188,5 +266,7 @@
         timeFormat      :    "24"
     });
 </script>
+
+
 
 <?php require_once("footer_mis.php"); ?>
