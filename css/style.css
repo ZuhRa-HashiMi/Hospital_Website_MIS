@@ -87,4 +87,30 @@ li.bg,
 }
 
 
+.input-group {
+	width:100%;
+}
+
+.input-group-addon {
+	width:100px;
+}
+
+/*a.btn {
+	color:white;
+}
+
+a.btn span {
+	color:white;
+}
+
+.Welcome {
+	min-height:400px !important;
+}
+
+@media print {
+	.noprint {
+		display:none;
+	}
+}*/
+
 
