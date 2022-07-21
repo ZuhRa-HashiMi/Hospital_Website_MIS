@@ -65,7 +65,7 @@
 	</a>
 	</td>
 	<td>
-	<a href="department_delete.php?department_id=<?php echo $row_department ["department_id"] ?>">
+	<a class="delete" href="department_delete.php?department_id=<?php echo $row_department ["department_id"] ?>">
 	<span class="glyphicon glyphicon-trash"></span>
 	</a>
 	</td>
