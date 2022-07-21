@@ -28,13 +28,13 @@
 <div class="panel panel-primary">
 	
 	<div class="panel-heading">
-		<h1>Add New Department</h1>
+		<h1>Edit Department</h1>
 	</div>
 
 	<div class="panel-body">
 	<?php if(isset($_GET["error"])) { ?>
 			<div class="alert alert-danger">
-				Could not add new department!
+				Could not save changes!
 			</div>
 		<?php } ?>
 	
@@ -47,7 +47,7 @@
 				<input type="text" class="form-control" name="department_name">
 			</div>
 			
-			<input type="submit" class="btn btn-primary" value="Add Department">
+			<input type="submit" class="btn btn-primary" value="Save Changes">
 			
 		</form>
 		</div>
