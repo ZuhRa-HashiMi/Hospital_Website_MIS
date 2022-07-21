@@ -48,7 +48,11 @@
 	<span class="glyphicon glyphicon-edit"></span>
 	</a>
 	</td>
-	<td><span class="glyphicon glyphicon-trash"></span></td>
+	<td>
+	<a href="department_delete.php?department_id=<?php echo $row_department ["department_id"] ?>">
+	<span class="glyphicon glyphicon-trash"></span>
+	</a>
+	</td>
 </tr>
 <?php } while($row_department = mysqli_fetch_assoc($department));?>
 
