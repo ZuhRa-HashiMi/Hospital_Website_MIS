@@ -22,6 +22,7 @@
 	  <th>Photo</th>
 	   <th>Position</th>
 	    <th>Salary</th>
+			<th>Staff Type</th>
 		 <th>Department</th>
   </tr>
   <?php do{?>
@@ -31,6 +32,19 @@
 	   <td><img src="<?php echo $row_staff["photo"];?>" width="40" class="img-circle"> </td>
 	   <td><?php echo $row_staff["position"];?></td>
 	   <td><?php echo $row_staff["gross_salary"];?></td>
+	   <td><?php
+			
+			if($row_staff["staff_type"] == 1) {
+				echo "Doctor";
+			}
+			else if($row_staff["staff_type"] == 2) {
+				echo "Nurse";
+			}
+			else {
+				echo "Employee";
+			}
+		
+		?></td>
 	   <td><?php echo $row_staff["department_name"];?></td>
 	    
   
