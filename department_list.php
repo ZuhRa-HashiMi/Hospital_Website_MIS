@@ -30,6 +30,7 @@
     <td><?php echo $row_department ["department_id"] ?></td>
 	<td><?php echo $row_department ["department_name"] ?></td>
 	<td><span class="glyphicon glyphicon-edit"></span></td>
+	<td><span class="glyphicon glyphicon-trash"></span></td>
 </tr>
 <?php } while($row_department = mysqli_fetch_assoc($department));?>
 
