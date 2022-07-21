@@ -29,7 +29,12 @@
 <tr>
     <td><?php echo $row_department ["department_id"] ?></td>
 	<td><?php echo $row_department ["department_name"] ?></td>
-	<td><span class="glyphicon glyphicon-edit"></span></td>
+	
+	<td>
+	<a href="department_edit.php?department_id=<?php echo $row_department ["department_id"] ?>">
+	<span class="glyphicon glyphicon-edit"></span>
+	</a>
+	</td>
 	<td><span class="glyphicon glyphicon-trash"></span></td>
 </tr>
 <?php } while($row_department = mysqli_fetch_assoc($department));?>
