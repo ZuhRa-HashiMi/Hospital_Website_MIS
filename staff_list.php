@@ -29,6 +29,11 @@
 
 <?php require_once("header.php"); ?>
 
+<a href="#" id="print" class="noprint btn btn-primary pull-right">
+	<span class="glyphicon glyphicon-print"></span> 
+	Print
+</a>
+
 
 <h2>Staff List</h2>
 <?php if(isset($_GET["add"])) { ?>
