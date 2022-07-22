@@ -116,4 +116,50 @@
 </table>
 
 
+<ul class="pagination noprint">
+<?php if($page != 1) { ?>
+	<li><a href="staff_list.php?page=1">
+		First 
+	</a></li>
+<?php } ?>
+
+<?php if($page > 1) { ?>
+	<li><a href="staff_list.php?page=<?php echo $page-1; ?>">
+		Previous 
+	</a></li>
+<?php } ?>
+
+<?php if($page < $totalpage) { ?>
+	<li><a href="staff_list.php?page=<?php echo $page+1; ?>">
+		Next
+	</a></li>
+<?php } ?>
+
+<?php if($page != $totalpage) { ?>
+	<li><a href="staff_list.php?page=<?php echo $totalpage; ?>">
+		Last
+	</a></li>
+<?php } ?>
+</ul>
+
+<br>
+
+<ul class="pagination noprint">
+<?php for($x=1; $x<=$totalpage; $x++) { ?>
+	<li>
+		<?php if($x != $page) { ?>
+			<a href="staff_list.php?page=<?php echo $x; ?>">
+				<?php echo $x; ?>
+			</a>
+		<?php } else { ?>
+			<a href="#">
+				<?php echo $x; ?>
+			</a>
+		<?php } ?>
+	</li>
+<?php } ?>
+</ul>
+
+
+
 <?php require_once("footer_mis.php");?>
