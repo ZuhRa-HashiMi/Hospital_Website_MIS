@@ -1,7 +1,7 @@
 <?php require_once("connection.php"); ?>
 <?php
 
-
+    checkLevel(4, 9, 9, 4, 9, 9, 9, 9, 9, 9);
 
 	$staff_id = getValue($_GET["staff_id"]);
 	$staff = mysqli_query($con, "SELECT * FROM staff WHERE staff_id = $staff_id");
