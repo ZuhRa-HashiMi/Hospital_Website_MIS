@@ -1,12 +1,12 @@
 </div>
-      <div class="Latest col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      <div class="Latest noprint  col-lg-4 col-md-4 col-sm-4 col-xs-12">
         shorcut<br>
 		mmis<br>
       </div>
       <div class="clr"></div>
     </div>
   </div>
-  <div class="FBG">
+  <div class="FBG noprint">
     <div class="FBG_resize">
       <div class="Testimonials  col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <h2>Testimonials </h2>
@@ -32,7 +32,7 @@
       <div class="clr"></div>
     </div>
   </div>
-  <div class="footer">
+  <div class="footer noprint">
     <p>Copyright © Sitename.com. <a href="http://dreamtemplate.com/">dreamtemplate.com</a>. All Rights Reserved<br />
       <a href="index.html">Home</a> | <a href="contact.html">Contact</a> | <a href="blog.html">RSS</a></p>
   </div>
