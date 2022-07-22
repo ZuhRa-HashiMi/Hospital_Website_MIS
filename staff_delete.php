@@ -1,6 +1,8 @@
 <?php
-
+   
      require_once("connection.php");
+	  
+	checkLevel(8, 9, 9, 9, 9, 9, 9, 9, 9, 9);
 	 
 	$staff_id = getValue($_GET["staff_id"]);
 	
