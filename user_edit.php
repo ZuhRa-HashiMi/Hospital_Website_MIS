@@ -81,11 +81,11 @@
 					Admin Level:
 				</span>
 				<select name="admin_level" class="form-control">
-					<option value="0">None</option>
-					<option value="1">Read</option>
-					<option value="2">Insert</option>
-					<option value="4">Edit</option>
-					<option value="8">Remove</option>
+					<option value="0" <?php if ($row_user["admin_level"]==0) echo "selected"; ?>>None</option>
+					<option value="1" <?php if ($row_user["admin_level"]==1) echo "selected"; ?>>Read</option>
+					<option value="2" <?php if ($row_user["admin_level"]==2) echo "selected"; ?>>Insert</option>
+					<option value="4" <?php if ($row_user["admin_level"]==4) echo "selected"; ?>>Edit</option>
+					<option value="8" <?php if ($row_user["admin_level"]==8) echo "selected"; ?>>Remove</option>
 				</select>
 			</div>
 			
@@ -94,11 +94,11 @@
 					Website Level:
 				</span>
 				<select name="website_level" class="form-control">
-					<option value="0">None</option>
-					<option value="1">Read</option>
-					<option value="2">Insert</option>
-					<option value="4">Edit</option>
-					<option value="8">Remove</option>
+					<option value="0" <?php if ($row_user["website_level"]==0) echo "selected"; ?>>None</option>
+					<option value="1" <?php if ($row_user["website_level"]==1) echo "selected"; ?>>Read</option>
+					<option value="2" <?php if ($row_user["website_level"]==2) echo "selected"; ?>>Insert</option>
+					<option value="4" <?php if ($row_user["website_level"]==4) echo "selected"; ?>>Edit</option>
+					<option value="8" <?php if ($row_user["website_level"]==8) echo "selected"; ?>>Remove</option>
 				</select>
 			</div>
 			
@@ -107,8 +107,8 @@
 					Stock Level:
 				</span>
 				<select name="stock_level" class="form-control">
-					<option value="0">None</option>
-					<option value="1">Read</option>
+					<option value="0" <?php if ($row_user["stock_level"]==0) echo "selected"; ?>>None</option>
+					<option value="1" <?php if ($row_user[""]==1) echo "selected"; ?>>Read</option>
 					<option value="2">Insert</option>
 					<option value="4">Edit</option>
 					<option value="8">Remove</option>
@@ -120,11 +120,11 @@
 					HR Level:
 				</span>
 				<select name="hr_level" class="form-control">
-					<option value="0">None</option>
-					<option value="1">Read</option>
-					<option value="2">Insert</option>
-					<option value="4">Edit</option>
-					<option value="8">Remove</option>
+					<option value="0" <?php if($row_user["hr_level"] == 0) echo "selected"; ?>>None</option>
+					<option value="1" <?php if($row_user["hr_level"] == 1) echo "selected"; ?>>Read</option>
+					<option value="2" <?php if($row_user["hr_level"] == 2) echo "selected"; ?>>Insert</option>
+					<option value="4" <?php if($row_user["hr_level"] == 4) echo "selected"; ?>>Edit</option>
+					<option value="8" <?php if($row_user["hr_level"] == 8) echo "selected"; ?>>Remove</option>
 				</select>
 			</div>
 			
@@ -133,11 +133,11 @@
 					Finance Level:
 				</span>
 				<select name="finance_level" class="form-control">
-					<option value="0">None</option>
-					<option value="1">Read</option>
-					<option value="2">Insert</option>
-					<option value="4">Edit</option>
-					<option value="8">Remove</option>
+				<option value="0" <?php if($row_user["finance_level"] == 0) echo "selected"; ?>>None</option>
+					<option value="1" <?php if($row_user["finance_level"] == 1) echo "selected"; ?>>Read</option>
+					<option value="2" <?php if($row_user["finance_level"] == 2) echo "selected"; ?>>Insert</option>
+					<option value="4" <?php if($row_user["finance_level"] == 4) echo "selected"; ?>>Edit</option>
+					<option value="8" <?php if($row_user["finance_level"] == 8) echo "selected"; ?>>Remove</option>
 				</select>
 			</div>
 			
@@ -146,11 +146,11 @@
 					Surgery Level:
 				</span>
 				<select name="surgery_level" class="form-control">
-					<option value="0">None</option>
-					<option value="1">Read</option>
-					<option value="2">Insert</option>
-					<option value="4">Edit</option>
-					<option value="8">Remove</option>
+			<option value="0" <?php if($row_user["surgery_level"] == 0) echo "selected"; ?>>None</option>
+					<option value="1" <?php if($row_user["surgery_level"] == 1) echo "selected"; ?>>Read</option>
+					<option value="2" <?php if($row_user["surgery_level"] == 2) echo "selected"; ?>>Insert</option>
+					<option value="4" <?php if($row_user["surgery_level"] == 4) echo "selected"; ?>>Edit</option>
+					<option value="8" <?php if($row_user["surgery_level"] == 8) echo "selected"; ?>>Remove</option>
 				</select>
 			</div>
 			
@@ -159,11 +159,11 @@
 					Pharmacy Level:
 				</span>
 				<select name="pharmacy_level" class="form-control">
-					<option value="0">None</option>
-					<option value="1">Read</option>
-					<option value="2">Insert</option>
-					<option value="4">Edit</option>
-					<option value="8">Remove</option>
+					<option value="0" <?php if($row_user["pharmacy_level"] == 0) echo "selected"; ?>>None</option>
+					<option value="1" <?php if($row_user["pharmacy_level"] == 1) echo "selected"; ?>>Read</option>
+					<option value="2" <?php if($row_user["pharmacy_level"] == 2) echo "selected"; ?>>Insert</option>
+					<option value="4" <?php if($row_user["pharmacy_level"] == 4) echo "selected"; ?>>Edit</option>
+					<option value="8" <?php if($row_user["pharmacy_level"] == 8) echo "selected"; ?>>Remove</option>
 				</select>
 			</div>
 			
@@ -172,11 +172,11 @@
 					Laboratoar Level:
 				</span>
 				<select name="labrotoar_level" class="form-control">
-					<option value="0">None</option>
-					<option value="1">Read</option>
-					<option value="2">Insert</option>
-					<option value="4">Edit</option>
-					<option value="8">Remove</option>
+					<option value="0" <?php if($row_user["labrotoar_level"] == 0) echo "selected"; ?>>None</option>
+					<option value="1" <?php if($row_user["labrotoar_level"] == 1) echo "selected"; ?>>Read</option>
+					<option value="2" <?php if($row_user["labrotoar_level"] == 2) echo "selected"; ?>>Insert</option>
+					<option value="4" <?php if($row_user["labrotoar_level"] == 4) echo "selected"; ?>>Edit</option>
+					<option value="8" <?php if($row_user["labrotoar_level"] == 8) echo "selected"; ?>>Remove</option>
 				</select>
 			</div>
 			
@@ -185,11 +185,11 @@
 					Blood Bank Level:
 				</span>
 				<select name="blood_bank_level" class="form-control">
-					<option value="0">None</option>
-					<option value="1">Read</option>
-					<option value="2">Insert</option>
-					<option value="4">Edit</option>
-					<option value="8">Remove</option>
+					<option value="0" <?php if($row_user["blood_bank_level"] == 0) echo "selected"; ?>>None</option>
+					<option value="1" <?php if($row_user["blood_bank_level"] == 1) echo "selected"; ?>>Read</option>
+					<option value="2" <?php if($row_user["blood_bank_level"] == 2) echo "selected"; ?>>Insert</option>
+					<option value="4" <?php if($row_user["blood_bank_level"] == 4) echo "selected"; ?>>Edit</option>
+					<option value="8" <?php if($row_user["blood_bank_level"] == 8) echo "selected"; ?>>Remove</option>
 				</select>
 			</div>
 			
@@ -198,11 +198,11 @@
 					Patient Level:
 				</span>
 				<select name="patient_level" class="form-control">
-					<option value="0">None</option>
-					<option value="1">Read</option>
-					<option value="2">Insert</option>
-					<option value="4">Edit</option>
-					<option value="8">Remove</option>
+					<option value="0" <?php if($row_user["patient_level"] == 0) echo "selected"; ?>>None</option>
+					<option value="1" <?php if($row_user["patient_level"] == 1) echo "selected"; ?>>Read</option>
+					<option value="2" <?php if($row_user["patient_level"] == 2) echo "selected"; ?>>Insert</option>
+					<option value="4" <?php if($row_user["patient_level"] == 4) echo "selected"; ?>>Edit</option>
+					<option value="8" <?php if($row_user["patient_level"] == 8) echo "selected"; ?>>Remove</option>
 				</select>
 			</div>
 			
