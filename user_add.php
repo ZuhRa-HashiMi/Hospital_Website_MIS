@@ -2,9 +2,21 @@
 <?php
 	
 	if(isset($_POST["username"])) {
-		$dusername = getValue($_POST["username"]);
+		$username = getValue($_POST["username"]);
+		$password = getValue($_POST["password"]);
+		$user_type = getValue($_POST["user_type"]);
+		$admin_level = getValue($_POST["admin_level"]);
+		$website_level = getValue($_POST["website_level"]);
+		$stock_level = getValue($_POST["stock_level"]);
+		$hr_level = getValue($_POST["hr_level"]);
+		$finance_level = getValue($_POST["finance_level"]);
+		$surgery_level = getValue($_POST["surgery_level"]);
+		$pharmacy_level = getValue($_POST["pharmacy_level"]);
+		$labrotoar_level = getValue($_POST["labrotoar_level"]);
+		$blood_bank_level = getValue($_POST["blood_bank_level"]);
+		$patient_level = getValue($_POST["patient_level"]);
 		
-		$result = mysqli_query($con, "INSERT INTO users VALUES (NULL, '$department_name')");
+		$result = mysqli_query($con, "INSERT INTO users VALUES (NULL, '$username', PASSWORD('$password'), $user_type, $admin_level, $website_level, $stock_level, $hr_level, $finance_level, $surgery_level, $pharmacy_level, $labrotoar_level, $blood_bank_level, $patient_level)");
 		
 		if($result) {
 			header("location:user_list.php?add=done");
@@ -16,14 +28,9 @@
 	}
 	
 ?>
-
-
-<?php require_once("header.php");?>
-
-
+<?php require_once("header.php"); ?>
 
 <div class="col-lg-8 col-md-8 col-ms-8 col-xs-12 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-0">
-
 
 <div class="panel panel-primary">
 	
@@ -32,9 +39,10 @@
 	</div>
 
 	<div class="panel-body">
-	<?php if(isset($_GET["error"])) { ?>
+	
+		<?php if(isset($_GET["error"])) { ?>
 			<div class="alert alert-danger">
-				Could not add new User!
+				Could not add new user!
 			</div>
 		<?php } ?>
 	
@@ -42,9 +50,9 @@
 			
 			<div class="input-group">
 				<span class="input-group-addon">
-					UserName:
+					Username:
 				</span>
-				<input type="text" class="form-control" name="department_name">
+				<input type="text" class="form-control" name="username">
 			</div>
 			
 			<div class="input-group">
@@ -159,7 +167,7 @@
 				<span class="input-group-addon">
 					Laboratoar Level:
 				</span>
-				<select name="laboratoar_level" class="form-control">
+				<select name="labrotoar_level" class="form-control">
 					<option value="0">None</option>
 					<option value="1">Read</option>
 					<option value="2">Insert</option>
@@ -197,11 +205,13 @@
 			<input type="submit" class="btn btn-primary" value="Add User">
 			
 		</form>
-		</div>
 		
 	</div>
 
 </div>
-<?php require_once("footer_mis.php");?>
+
+</div>
+
+<?php require_once("footer_mis.php"); ?>
 
 
