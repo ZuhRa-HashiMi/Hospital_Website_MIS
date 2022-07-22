@@ -35,14 +35,14 @@
 <div class="panel panel-primary">
 	
 	<div class="panel-heading">
-		<h1>Add New User</h1>
+		<h1>Edit User</h1>
 	</div>
 
 	<div class="panel-body">
 	
 		<?php if(isset($_GET["error"])) { ?>
 			<div class="alert alert-danger">
-				Could not add new user!
+				Could not save changes!
 			</div>
 		<?php } ?>
 	
@@ -202,7 +202,7 @@
 				</select>
 			</div>
 			
-			<input type="submit" class="btn btn-primary" value="Add User">
+			<input type="submit" class="btn btn-primary" value="Save Changes">
 			
 		</form>
 		
