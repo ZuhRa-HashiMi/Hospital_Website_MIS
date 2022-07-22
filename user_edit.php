@@ -1,5 +1,16 @@
 <?php require_once("connection.php"); ?>
 <?php
+    $user_id=getValue($_GET["user_id"]);
+	$user = mysqli_query($con, "SELECT * FROM users WHERE user_id = $user_id");
+	
+	$row_user=mysqli_fetch_assoc($user);
+
+
+
+
+
+
+
 	
 	if(isset($_POST["username"])) {
 		$username = getValue($_POST["username"]);
@@ -52,7 +63,7 @@
 				<span class="input-group-addon">
 					Username:
 				</span>
-				<input type="text" class="form-control" name="username">
+				<input value="<?php echo $row_user["username"]; ?>"type="text" class="form-control" name="username">
 			</div>
 			
 			<div class="input-group">
