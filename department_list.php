@@ -44,6 +44,21 @@
 <?php } ?>
 
 
+<form method="get">
+	<div class="input-group">
+		<span class="input-group-addon">
+			Search:
+		</span>
+		<input type="text" name="q" class="form-control">
+		<span class="input-group-btn">
+			<button class="btn btn-primary">
+				<span style="color:white;" class="glyphicon glyphicon-search"></span>
+			</button>
+		</span>
+	</div>
+</form>
+
+
 
 
 
