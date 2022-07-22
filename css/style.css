@@ -107,10 +107,10 @@ a.btn span {
 	min-height:400px !important;
 }
 
-/*@media print {
+@media print {
 	.noprint {
 		display:none;
 	}
-}*/
+}
 
 
