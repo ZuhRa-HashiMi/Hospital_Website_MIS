@@ -1,8 +1,24 @@
 <?php require_once("connection.php"); ?>
 <?php 
-  $staff = mysqli_query($con, "SELECT * FROM staff LEFT JOIN department ON department.department_id=staff.department_id");
-	$row_staff = mysqli_fetch_assoc($staff);
+  
+	if(isset($_GET["page"])) {
+		$page = $_GET["page"];
+	}
+	else {
+		$page = 1;
+	}
+
+	$allstaff = mysqli_query($con, "SELECT * FROM staff LEFT JOIN department ON department.department_id = staff.department_id");
+	$row_allstaff = mysqli_fetch_assoc($allstaff);
 	
+	$totalrows = mysqli_num_rows($allstaff);
+	$rows_per_page = 2;
+	$totalpage = ceil($totalrows / $rows_per_page);
+
+	$offset = ($page - 1) * $rows_per_page;
+	
+	$staff = mysqli_query($con, "SELECT * FROM staff LEFT JOIN department ON department.department_id = staff.department_id LIMIT $offset, $rows_per_page");
+	$row_staff = mysqli_fetch_assoc($staff);
 	
 	
 	
