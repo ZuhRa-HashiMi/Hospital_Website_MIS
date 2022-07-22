@@ -1,6 +1,5 @@
 <?php
 
-	
 	require_once("connection.php");
 	
 	$user_id = getValue($_GET["user_id"]);
@@ -13,4 +12,6 @@
 	else {
 		header("location:user_list.php?error=notdelete");
 	}
+	
+
 ?>
