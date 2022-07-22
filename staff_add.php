@@ -1,8 +1,7 @@
 
 <?php require_once("connection.php"); ?>
 <?php
-
-
+    checkLevel(2, 9, 9, 2, 9, 9, 9, 9, 9, 9);
 	$department = mysqli_query($con, "SELECT * FROM department ORDER BY department_id ASC");
 	$row_department = mysqli_fetch_assoc($department);
 	
