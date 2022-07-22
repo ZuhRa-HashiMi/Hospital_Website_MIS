@@ -26,7 +26,7 @@
 </head>
 <body>
 <div class="main">
-  <div class="header">
+  <div class="header noprint">
   <?php if(!isset($_SESSION["user_id"])) { ?>
   <a href="login.php" id="login" class="pull-right">
   Login
