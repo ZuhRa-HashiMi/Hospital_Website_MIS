@@ -71,8 +71,8 @@
 					User Type:
 				</span>
 				<select name="user_type" class="form-control">
-					<option value="1">Admin</option>
-					<option value="0">Staff</option>
+					<option value="1" <?php if ($row_user["user_type"]==1) echo "selected"; ?> >Admin</option>
+					<option value="0" <?php if ($row_user["user_type"]==0) echo "selected"; ?> >Staff</option>
 				</select>
 			</div>
 			
