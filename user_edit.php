@@ -57,13 +57,6 @@
 			
 			<div class="input-group">
 				<span class="input-group-addon">
-					Password:
-				</span>
-				<input type="password" class="form-control" name="password">
-			</div>
-			
-			<div class="input-group">
-				<span class="input-group-addon">
 					User Type:
 				</span>
 				<select name="user_type" class="form-control">
