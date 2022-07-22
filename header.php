@@ -158,8 +158,7 @@
 				<?php } ?>
             </div>  
         </nav>
-		  
-        </div>
+		  </div>
         
       </div>
       <div class="clr"></div>
@@ -167,10 +166,17 @@
   </div>
   <div class="main_body_resize">
     <div class="main_body">
-     
       <div class="clr"></div>
     </div>
   </div>
   <div class="body_resize">
     <div class="body">
-      <div class="Welcome col-lg-8 col-md-8 col-sm-8 col-xs-12">
+      <div class="Welcome col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	  
+		<?php if(isset($_GET["authorize"])) { ?>
+			<div class="alert alert-warning">
+				You are not authorized to access the page!
+			</div>
+		<?php } ?>
+	  
+	  
