@@ -1,5 +1,12 @@
 <?php require_once("connection.php"); ?>
 <?php 
+      
+	  
+	checkLevel(1, 9, 9, 1, 1, 9, 9, 9, 9, 9);
+
+
+
+
   
 	if(isset($_GET["page"])) {
 		$page = $_GET["page"];
