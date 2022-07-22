@@ -12,6 +12,11 @@
 
 <?php require_once("header.php");?>
 
+
+<a href="user_add.php" class="btn btn-primary pull-right">
+	Add New User
+</a>
+
 <h2>User Accounts</h2>
 
 <?php if(isset($_GET["add"])) { ?>
