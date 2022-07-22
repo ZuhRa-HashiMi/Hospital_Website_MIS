@@ -47,6 +47,153 @@
 				<input type="text" class="form-control" name="department_name">
 			</div>
 			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Password:
+				</span>
+				<input type="password" class="form-control" name="password">
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					User Type:
+				</span>
+				<select name="user_type" class="form-control">
+					<option value="1">Admin</option>
+					<option value="0">Staff</option>
+				</select>
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Admin Level:
+				</span>
+				<select name="admin_level" class="form-control">
+					<option value="0">None</option>
+					<option value="1">Read</option>
+					<option value="2">Insert</option>
+					<option value="4">Edit</option>
+					<option value="8">Remove</option>
+				</select>
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Website Level:
+				</span>
+				<select name="website_level" class="form-control">
+					<option value="0">None</option>
+					<option value="1">Read</option>
+					<option value="2">Insert</option>
+					<option value="4">Edit</option>
+					<option value="8">Remove</option>
+				</select>
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Stock Level:
+				</span>
+				<select name="stock_level" class="form-control">
+					<option value="0">None</option>
+					<option value="1">Read</option>
+					<option value="2">Insert</option>
+					<option value="4">Edit</option>
+					<option value="8">Remove</option>
+				</select>
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					HR Level:
+				</span>
+				<select name="hr_level" class="form-control">
+					<option value="0">None</option>
+					<option value="1">Read</option>
+					<option value="2">Insert</option>
+					<option value="4">Edit</option>
+					<option value="8">Remove</option>
+				</select>
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Finance Level:
+				</span>
+				<select name="finance_level" class="form-control">
+					<option value="0">None</option>
+					<option value="1">Read</option>
+					<option value="2">Insert</option>
+					<option value="4">Edit</option>
+					<option value="8">Remove</option>
+				</select>
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Surgery Level:
+				</span>
+				<select name="surgery_level" class="form-control">
+					<option value="0">None</option>
+					<option value="1">Read</option>
+					<option value="2">Insert</option>
+					<option value="4">Edit</option>
+					<option value="8">Remove</option>
+				</select>
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Pharmacy Level:
+				</span>
+				<select name="pharmacy_level" class="form-control">
+					<option value="0">None</option>
+					<option value="1">Read</option>
+					<option value="2">Insert</option>
+					<option value="4">Edit</option>
+					<option value="8">Remove</option>
+				</select>
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Laboratoar Level:
+				</span>
+				<select name="laboratoar_level" class="form-control">
+					<option value="0">None</option>
+					<option value="1">Read</option>
+					<option value="2">Insert</option>
+					<option value="4">Edit</option>
+					<option value="8">Remove</option>
+				</select>
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Blood Bank Level:
+				</span>
+				<select name="blood_bank_level" class="form-control">
+					<option value="0">None</option>
+					<option value="1">Read</option>
+					<option value="2">Insert</option>
+					<option value="4">Edit</option>
+					<option value="8">Remove</option>
+				</select>
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Patient Level:
+				</span>
+				<select name="patient_level" class="form-control">
+					<option value="0">None</option>
+					<option value="1">Read</option>
+					<option value="2">Insert</option>
+					<option value="4">Edit</option>
+					<option value="8">Remove</option>
+				</select>
+			</div>
+			
 			<input type="submit" class="btn btn-primary" value="Add User">
 			
 		</form>
