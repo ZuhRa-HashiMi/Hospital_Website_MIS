@@ -14,7 +14,6 @@
 	
 	if(isset($_POST["username"])) {
 		$username = getValue($_POST["username"]);
-		$password = getValue($_POST["password"]);
 		$user_type = getValue($_POST["user_type"]);
 		$admin_level = getValue($_POST["admin_level"]);
 		$website_level = getValue($_POST["website_level"]);
@@ -27,13 +26,13 @@
 		$blood_bank_level = getValue($_POST["blood_bank_level"]);
 		$patient_level = getValue($_POST["patient_level"]);
 		
-		$result = mysqli_query($con, "INSERT INTO users VALUES (NULL, '$username', PASSWORD('$password'), $user_type, $admin_level, $website_level, $stock_level, $hr_level, $finance_level, $surgery_level, $pharmacy_level, $labrotoar_level, $blood_bank_level, $patient_level)");
+		$result = mysqli_query($con, "UPDATE users SET username='$username', user_type=$user_type, admin_level= $admin_level, website_level= $website_level, stock_level= $stock_level, hr_level= $hr_level, finance_level= $finance_level, surgery_level= $surgery_level, pharmacy_level= $pharmacy_level, labrotoar_level= $labrotoar_level, blood_bank_level= $blood_bank_level, patient_level=$patient_level WHERE user_id=$user_id" );
 		
 		if($result) {
-			header("location:user_list.php?add=done");
+			header("location:user_list.php?edit=done");
 		}
 		else {
-			header("location:user_add.php?error=notadd");
+			header("location:user_edit.php?error=notedit&user_id=$user_id");
 		}
 		
 	}
