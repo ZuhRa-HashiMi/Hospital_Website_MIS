@@ -102,12 +102,12 @@ a.btn {
 a.btn span {
 	color:white;
 }
-/*
+
 .Welcome {
 	min-height:400px !important;
 }
 
-@media print {
+/*@media print {
 	.noprint {
 		display:none;
 	}
