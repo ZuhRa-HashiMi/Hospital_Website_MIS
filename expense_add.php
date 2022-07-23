@@ -46,8 +46,7 @@
 				</span>
 				<input type="text" class="form-control" name="expense_name">
 			</div>
-			
-			<input type="submit" class="btn btn-primary" value="Add expense">
+
 			<div class="input-group">
 				<span class="input-group-addon">
 					Amount:
@@ -86,7 +85,7 @@
 
 <script type="text/javascript">
 	Calendar.setup({
-        inputField      :    "expense_date",
+        inputField      :    "expenese_date",
         ifFormat        :    "%Y-%m-%d",
         showsTime       :    false,
         timeFormat      :    "24"
