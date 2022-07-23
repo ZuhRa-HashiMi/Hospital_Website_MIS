@@ -83,6 +83,20 @@
 	</div>
 
 </div>
+
+<script type="text/javascript">
+	Calendar.setup({
+        inputField      :    "expense_date",
+        ifFormat        :    "%Y-%m-%d",
+        showsTime       :    false,
+        timeFormat      :    "24"
+    });
+</script>
+
+
+
+
+
 <?php require_once("footer_mis.php");?>
 
 
