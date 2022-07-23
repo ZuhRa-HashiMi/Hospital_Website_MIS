@@ -14,13 +14,9 @@
 		
 		$firstname = getValue($_POST["firstname"]);
 		$lastname = getValue($_POST["lastname"]);
-		$gender = getValue($_POST["gender"]);
-		$dob = getValue($_POST["dob"]);
-		$nic = getValue($_POST["nic"]);
 		$position = getValue($_POST["position"]);
 		$gross_salary = getValue($_POST["gross_salary"]);
 		$currency = getValue($_POST["currency"]);
-		$phone = getValue($_POST["phone"]);
 		
 		$email = getValue($_POST["email"]);
 		if($email == "") {
@@ -30,10 +26,10 @@
 			$email = "'" . $email . "'";
 		}
 		
+		
 		$address = getValue($_POST["address"]);
-		$hire_date = getValue($_POST["hire_date"]);
-		$staff_type = getValue($_POST["staff_type"]);
-		$department_id = getValue($_POST["department_id"]);
+		
+		$phone = getValue($_POST["phone"]);
 		
 		
 		if($_FILES["photo"]["name"] != "") { 
@@ -63,7 +59,20 @@
 			$path = $row_staff["photo"];
 		}
 		
-		$result = mysqli_query($con, "UPDATE staff SET firstname='$firstname', lastname='$lastname', gender=$gender, dob=$dob, nic='$nic', photo='$path', position='$position', gross_salary=$gross_salary, currency='$currency', phone='$phone', email=$email, address='$address', hire_date='$hire_date', staff_type=$staff_type, department_id=$department_id WHERE staff_id = $staff_id");
+		$gender = getValue($_POST["gender"]);
+		$dob = getValue($_POST["dob"]);
+		$nic = getValue($_POST["nic"]);
+	
+		$hire_date = getValue($_POST["hire_date"]);
+		$staff_type = getValue($_POST["staff_type"]);
+		$department_id = getValue($_POST["department_id"]);
+		
+	    
+		$result = mysqli_query($con, "UPDATE staff SET firstname='$firstname', lastname='$lastname',  position='$position', gross_salary=$gross_salary, currency='$currency',  email=$email, address='$address',  phone='$phone',  photo='$path',  gender=$gender, dob=$dob, nic='$nic', hire_date='$hire_date', staff_type=$staff_type, department_id=$department_id WHERE staff_id = $staff_id");
+		
+		
+		
+		
 		if($result) {
 			header("location:staff_list.php?edit=done");
 		}
@@ -72,6 +81,7 @@
 		}
 		
 	}
+	
 
 ?>
 <?php require_once("header.php"); ?>
@@ -125,6 +135,66 @@
 				<input required value="<?php echo $row_staff["lastname"]; ?>" type="text" name="lastname" class="form-control">
 			</div>
 			
+			
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Position:
+				</span>
+				<input value="<?php echo $row_staff["position"]; ?>" required type="text" name="position" class="form-control">
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Salary:
+				</span>
+				<input value="<?php echo $row_staff["gross_salary"]; ?>" required type="text" name="gross_salary" class="form-control">
+			</div>
+			
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Currency:
+				</span>
+				<select name="currency" class="form-control">
+					<option <?php if($row_staff["currency"] == "AFN") echo "selected"; ?>>AFN</option>
+					<option <?php if($row_staff["currency"] == "USD") echo "selected"; ?>>USD</option>
+				</select>
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Email:
+				</span>
+				<input value="<?php echo $row_staff["email"]; ?>" type="email" name="email" class="form-control">
+			</div>
+		
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Address:
+				</span>
+				<input value="<?php echo $row_staff["address"]; ?>" required type="text" name="address" class="form-control">
+			</div>
+			
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Phone:
+				</span>
+				<input value="<?php echo $row_staff["phone"]; ?>" required type="text" name="phone" class="form-control">
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Photo:
+				</span>
+				<input type="file" name="photo" class="form-control">
+				<span class="input-group-addon" style="width:25px;padding:0 2px;">
+					<img src="<?php echo $row_staff["photo"]; ?>" width="25">
+				</span>
+			</div>
+			
 			<div class="input-group">
 				<span class="input-group-addon">
 					Gender:
@@ -158,66 +228,10 @@
 				<input value="<?php echo $row_staff["nic"]; ?>" required type="text" name="nic" class="form-control">
 			</div>
 			
-			
-			
-			<div class="input-group">
-				<span class="input-group-addon">
-					Position:
-				</span>
-				<input value="<?php echo $row_staff["position"]; ?>" required type="text" name="position" class="form-control">
-			</div>
-			
-			<div class="input-group">
-				<span class="input-group-addon">
-					Salary:
-				</span>
-				<input value="<?php echo $row_staff["gross_salary"]; ?>" required type="text" name="gross_salary" class="form-control">
-			</div>
-			
-			<div class="input-group">
-				<span class="input-group-addon">
-					Currency:
-				</span>
-				<select name="currency" class="form-control">
-					<option <?php if($row_staff["currency"] == "AFN") echo "selected"; ?>>AFN</option>
-					<option <?php if($row_staff["currency"] == "USD") echo "selected"; ?>>USD</option>
-				</select>
-			</div>
-			
 			</div>
 			
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			
-			<div class="input-group">
-				<span class="input-group-addon">
-					Photo:
-				</span>
-				<input type="file" name="photo" class="form-control">
-				<span class="input-group-addon" style="width:25px;padding:0 2px;">
-					<img src="<?php echo $row_staff["photo"]; ?>" width="25">
-				</span>
-			</div>
-			
-			<div class="input-group">
-				<span class="input-group-addon">
-					Phone:
-				</span>
-				<input value="<?php echo $row_staff["phone"]; ?>" required type="text" name="phone" class="form-control">
-			</div>
-			
-			<div class="input-group">
-				<span class="input-group-addon">
-					Email:
-				</span>
-				<input value="<?php echo $row_staff["email"]; ?>" type="email" name="email" class="form-control">
-			</div>
-			
-			<div class="input-group">
-				<span class="input-group-addon">
-					Address:
-				</span>
-				<input value="<?php echo $row_staff["address"]; ?>" required type="text" name="address" class="form-control">
-			</div>
 			
 			<div class="input-group">
 				<span class="input-group-addon">
