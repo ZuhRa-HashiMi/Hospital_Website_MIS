@@ -6,13 +6,13 @@
 
 	if(isset($_GET["q"])) {
 		$search = getValue($_GET["q"]);
-		$condition = " WHERE department_name LIKE '%$search%' ";
+		$condition = " WHERE expences_to LIKE '%$search%' ";
 	}
 	
-	$department = mysqli_query($con, "SELECT * FROM department $condition ORDER BY department_id ASC");
-	$row_department = mysqli_fetch_assoc($department);
+	$expense = mysqli_query($con, "SELECT * FROM expenes $condition ORDER BY expenes_id DESC");
+	$row_expense = mysqli_fetch_assoc($expense);
 	
-	$totalRows_department = mysqli_num_rows($department);
+	$totalRows_expense = mysqli_num_rows($expense);
 	
 	
 	
@@ -20,19 +20,19 @@
 
 <?php require_once("header.php");?>
 
-<h2>Department List</h2>
+<h2>Expense List</h2>
 
 <?php if(isset($_GET["add"])) { ?>
 	<div class="alert alert-success alert-dismissable">
 		<button class="close" data-dismiss="alert" area-hidden="true">&times;</button>
-		New department has been successfully added!
+		New expense has been successfully added!
 	</div>
 <?php } ?>
 
 <?php if(isset($_GET["edit"])) { ?>
 	<div class="alert alert-success alert-dismissable">
 		<button class="close" data-dismiss="alert" area-hidden="true">&times;</button>
-		Selected department has been successfully Updated!
+		Selected expense has been successfully Updated!
 		
 	</div>
 <?php } ?>
@@ -40,7 +40,7 @@
 <?php if(isset($_GET["delete"])) { ?>
 	<div class="alert alert-success alert-dismissable">
 		<button class="close" data-dismiss="alert" area-hidden="true">&times;</button>
-		Selected department has been successfully Deleted!
+		Selected expense has been successfully Deleted!
 		
 	</div>
 <?php } ?>
@@ -48,7 +48,7 @@
 <?php if(isset($_GET["Error"])) { ?>
 	<div class="alert alert-danger alert-dismissable">
 		<button class="close" data-dismiss="alert" area-hidden="true">&times;</button>
-		Could not delete selected department!
+		Could not delete selected expense!
 		
 	</div>
 <?php } ?>
@@ -76,12 +76,12 @@
 <div style="font-size:18px;">
 	<b>Search for: <?php echo $_GET["q"]; ?></b>
 	<br>
-	<b>Total Result: <?php echo $totalRows_department; ?></b>
+	<b>Total Result: <?php echo $totalRows_expense; ?></b>
 </div>
 <?php } ?>
 
 
-<?php if($totalRows_department > 0) { ?>
+<?php if($totalRows_expense > 0) { ?>
 <table class="table table-striped">
 	<tr>
 		<th>ID</th>
@@ -90,22 +90,51 @@
 		<th>Delete</th>
 	</tr>
 	
-	<?php do { ?>
+	<?php $totalAFN = 0; $totalUSD = 0; $totalEUR = 0;
+			do { ?>
 		<tr>
-			<td><?php echo $row_department["department_id"]; ?></td>
-			<td><?php echo $row_department["department_name"]; ?></td>
+			<td><?php echo $row_expense["expenes_id"]; ?></td>
+			<td><?php echo $row_expense["expences_to"]; ?></td>
+			<td><?php echo number_format($row_expense["amount"], 0); ?> <?php echo $row_expense["currency"]; ?></td>
+			<td><?php echo $row_expense["expenes_date"]; ?></td>
+			<?php
+				if($row_expense["currency"] == "USD") {
+					$totalUSD += $row_expense["amount"];
+				}
+				else if($row_expense["currency"] == "AFN") {
+					$totalAFN += $row_expense["amount"];
+				}
+				else if($row_expense["currency"] == "EUR") {
+					$totalEUR += $row_expense["amount"];
+				}
+			?>
 			<td>
-				<a href="department_edit.php?department_id=<?php echo $row_department["department_id"]; ?>">
+				<a href="expense_edit.php?expense_id=<?php echo $row_expense["expenes_id"]; ?>">
 					<span class="glyphicon glyphicon-edit"></span>
 				</a>
 			</td>
 			<td>
-				<a class="delete" href="department_delete.php?department_id=<?php echo $row_department["department_id"]; ?>">
+				<a class="delete" href="expense_delete.php?expense_id=<?php echo $row_expense["expenes_id"]; ?>">
 					<span class="glyphicon glyphicon-trash"></span>
 				</a>
 			</td>
 		</tr>
-	<?php } while($row_department = mysqli_fetch_assoc($department)); ?>
+	<?php } while($row_expense = mysqli_fetch_assoc($expense)); ?>
+	
+	<tr>
+		<td></td>
+		<td><b>Total Expense:</b></td>
+		<td>
+			<b>
+			<?php echo number_format($totalAFN, 0); ?> AFN<br>
+			<?php echo number_format($totalUSD, 0); ?> USD<br>
+			<?php echo number_format($totalEUR, 0); ?> EUR<br>
+			</b>
+		</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
 	
 </table>
 <?php } else { ?>
