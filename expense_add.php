@@ -1,10 +1,13 @@
 <?php require_once("connection.php"); ?>
 <?php
 	
-	if(isset($_POST["expense_name"])) {
-		$expense_name = getValue($_POST["expense_name"]);
+	if(isset($_POST["expences_to"])) {
+		$expense_to = getValue($_POST["expences_to"]);
+		$amount = getValue($_POST["amount"]);
+		$currency = getValue($_POST["currency"]);
+		$expense_date = getValue($_POST["expenes_date"]);
 		
-		$result = mysqli_query($con, "INSERT INTO expense VALUES (NULL, '$expense_name')");
+		$result = mysqli_query($con, "INSERT INTO expenes VALUES (NULL, '$expense_to', $amount, '$currency', '$expense_date')");
 		
 		if($result) {
 			header("location:expense_list.php?add=done");
@@ -44,7 +47,7 @@
 				<span class="input-group-addon">
 					expense To:
 				</span>
-				<input type="text" class="form-control" name="expense_name">
+				<input type="text" class="form-control" name="expences_to">
 			</div>
 
 			<div class="input-group">
@@ -69,7 +72,7 @@
 				<span class="input-group-addon">
 					Expense Date:
 				</span>
-				<input autocomplete="off" type="text" class="form-control" name="expenese_date" id="expenese_date">
+				<input autocomplete="off" type="text" class="form-control" name="expenes_date" id="expenes_date">
 			</div>
 			
 			<input type="submit" class="btn btn-primary" value="Add Expense">
@@ -85,7 +88,7 @@
 
 <script type="text/javascript">
 	Calendar.setup({
-        inputField      :    "expenese_date",
+        inputField      :    "expenes_date",
         ifFormat        :    "%Y-%m-%d",
         showsTime       :    false,
         timeFormat      :    "24"
