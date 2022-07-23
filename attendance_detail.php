@@ -132,11 +132,11 @@
 						timeFormat      :    "24"
 					});
 				</script>
-	   
-              </div>
+	
+    </div>
 
-              </div>
-             </div>
+  </div>
+</div>
 
 
 <?php require_once("footer_mis.php"); ?>
