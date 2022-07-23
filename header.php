@@ -12,6 +12,24 @@
 		
 ?>
 
+<?php if($_SESSION["local"] != "local/en.php") { ?>
+<style type="text/css">
+* {
+	direction:rtl;
+}
+.navbar-nav li {
+	float:right;
+}
+#nav-top {
+	float:right;
+}
+</style>
+<?php } ?>
+
+
+
+
+
 
 <!DOCTYPE html>
 <html>
