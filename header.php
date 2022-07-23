@@ -58,9 +58,9 @@
   
 	<form action="change_language.php" method="get" id="language" style="margin-top:5px;margin-right:5px;float:right;">
 		<select name="lang" onchange="document.getElementById('language').submit();">
-			<option value="en">English</option>
-			<option value="fa">دری</option>
-			<option value="ps">پشتو</option>
+			<option <?php if($_SESSION["local"] == "local/en.php") echo "selected"; ?> value="en">English</option>
+			<option <?php if($_SESSION["local"] == "local/fa.php") echo "selected"; ?> value="fa">دری</option>
+			<option <?php if($_SESSION["local"] == "local/ps.php") echo "selected"; ?> value="ps">پشتو</option>
 		</select>
 	</form>
   
