@@ -8,14 +8,11 @@
 	if(isset($_POST["firstname"])) {
 		$firstname = getValue($_POST["firstname"]);
 		$lastname = getValue($_POST["lastname"]);
-		$gender = getValue($_POST["gender"]);
-		$dob = getValue($_POST["dob"]);
-		$nic = getValue($_POST["nic"]);
-		$position = getValue($_POST["position"]);
+		$position = getValue($_POST["position"]);	
 		$gross_salary = getValue($_POST["gross_salary"]);
+			
 		$currency = getValue($_POST["currency"]);
-		$phone = getValue($_POST["phone"]);
-		
+				
 		$email = getValue($_POST["email"]);
 		if($email == "") {
 			$email = " NULL ";
@@ -25,11 +22,8 @@
 		}
 		
 		$address = getValue($_POST["address"]);
-		$hire_date = getValue($_POST["hire_date"]);
-		$staff_type = getValue($_POST["staff_type"]);
-		$department_id = getValue($_POST["department_id"]);
 		
-		
+		$phone = getValue($_POST["phone"]);
 		if($_FILES["photo"]["name"] != "") { 
 		
 			$filetype = $_FILES["photo"]["type"];
@@ -59,8 +53,18 @@
 			}
 		}
 		
+		$gender = getValue($_POST["gender"]);
+		$dob = getValue($_POST["dob"]);
+		$nic = getValue($_POST["nic"]);
 		
-		$result = mysqli_query($con, "INSERT INTO staff VALUES (NULL, '$firstname', '$lastname', $gender, $dob, '$nic', '$path', '$position', $gross_salary, '$currency', '$phone', $email, '$address', '$hire_date', $staff_type, $department_id)");
+		$hire_date = getValue($_POST["hire_date"]);
+		$staff_type = getValue($_POST["staff_type"]);
+		$department_id = getValue($_POST["department_id"]);
+		
+		
+		
+		
+		$result = mysqli_query($con, "INSERT INTO staff VALUES (NULL, $firstname','$lastname','$position',$gross_salary,'$currency', $email,'$address','$phone','$path',$gender,$dob,'$nic','$hire_date',$staff_type,$department_id");
 		if($result) {
 			header("location:staff_list.php?add=done");
 		}
@@ -108,6 +112,7 @@
 				Registration failed! Please try again!
 			</div>
 		<?php } ?>
+		
 		<form method="post" enctype="multipart/form-data">
 			
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -126,11 +131,71 @@
 				<input required type="text" name="lastname" class="form-control">
 			</div>
 			
+			
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Position:
+				</span>
+				<input required type="text" name="position" class="form-control">
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Salary:
+				</span>
+				<input required type="text" name="gross_salary" class="form-control">
+			</div>
+			
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Currency:
+				</span>
+				<select name="currency" class="form-control">
+					<option>AFN</option>
+					<option>USD</option>
+				</select>
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Email:
+				</span>
+				<input type="email" name="email" class="form-control">
+			</div>
+		
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Address:
+				</span>
+				<input type="text" name="address" class="form-control">
+			</div>
+			
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Phone:
+				</span>
+				<input required type="text" name="phone" class="form-control">
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					Photo:
+				</span>
+				<input type="file" name="photo" class="form-control">
+				<span class="input-group-addon" style="width:25px;padding:0 2px;">
+				
+				</span>
+			</div>
+			
 			<div class="input-group">
 				<span class="input-group-addon">
 					Gender:
 				</span>  &nbsp;
-				<label><input checked type="radio" name="gender" value="0"> Male</label> &nbsp;
+				<label><input type="radio" name="gender" value="0"> Male</label> &nbsp;
 				<label><input type="radio" name="gender" value="1"> Female</label>
 			</div>
 			
@@ -159,69 +224,16 @@
 				<input required type="text" name="nic" class="form-control">
 			</div>
 			
-			
-			
-			<div class="input-group">
-				<span class="input-group-addon">
-					Position:
-				</span>
-				<input required type="text" name="position" class="form-control">
-			</div>
-			
-			<div class="input-group">
-				<span class="input-group-addon">
-					Salary:
-				</span>
-				<input required type="text" name="gross_salary" class="form-control">
-			</div>
-			
-			<div class="input-group">
-				<span class="input-group-addon">
-					Currency:
-				</span>
-				<select name="currency" class="form-control">
-					<option>AFN</option>
-					<option>USD</option>
-				</select>
-			</div>
-			
 			</div>
 			
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			
-			<div class="input-group">
-				<span class="input-group-addon">
-					Photo:
-				</span>
-				<input type="file" name="photo" class="form-control">
-			</div>
-			
-			<div class="input-group">
-				<span class="input-group-addon">
-					Phone:
-				</span>
-				<input required type="text" name="phone" class="form-control">
-			</div>
-			
-			<div class="input-group">
-				<span class="input-group-addon">
-					Email:
-				</span>
-				<input type="email" name="email" class="form-control">
-			</div>
-			
-			<div class="input-group">
-				<span class="input-group-addon">
-					Address:
-				</span>
-				<input required type="text" name="address" class="form-control">
-			</div>
 			
 			<div class="input-group">
 				<span class="input-group-addon">
 					Hire Date:
 				</span>
-				<input value="<?php echo date("Y-m-d"); ?>" required autocomplete="off" type="text" id="hire_date" name="hire_date" class="form-control">
+				<input <?php echo date("Y-m-d"); ?>" required autocomplete="off" type="text" id="hire_date" name="hire_date" class="form-control">
 			</div>
 			
 			<div class="input-group">
@@ -244,12 +256,12 @@
 					<option value="NULL">None</option>
 						
 					<?php do { ?>
-						<option value="<?php echo $row_department["department_id"]; ?>"><?php echo $row_department["department_name"]; ?></option>
+						<option value="<?php echo $row_department["department_id"]; ?>"><?php echo $row_department["department_name"]; ?>></option>
 					<?php } while($row_department = mysqli_fetch_assoc($department)); ?>
 				</select>
 			</div>
 			
-			<input type="submit" value="Register Staff" class="btn btn-primary">
+			<input type="submit" value="Save Changes" class="btn btn-primary">
 			
 			</div>
 			
