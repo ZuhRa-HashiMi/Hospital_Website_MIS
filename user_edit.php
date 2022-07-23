@@ -107,10 +107,10 @@
 				</span>
 				<select name="stock_level" class="form-control">
 					<option value="0" <?php if ($row_user["stock_level"]==0) echo "selected"; ?>>None</option>
-					<option value="1" <?php if ($row_user[""]==1) echo "selected"; ?>>Read</option>
-					<option value="2">Insert</option>
-					<option value="4">Edit</option>
-					<option value="8">Remove</option>
+					<option value="1" <?php if ($row_user["stock_level"]==1) echo "selected"; ?> >Read</option>
+					<option value="2" <?php if ($row_user["stock_level"]==2) echo "selected"; ?>>Insert</option>
+					<option value="4" <?php if ($row_user["stock_level"]==4) echo "selected"; ?>>Edit</option>
+					<option value="8" <?php if ($row_user["stock_level"]==8) echo "selected"; ?>>Remove</option>
 				</select>
 			</div>
 			
