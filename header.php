@@ -1,7 +1,15 @@
 <?php 
-    if(!isset($_SESSION)) {
-	   session_start();
-	   }
+    if(!isset($_SESSION)) { 
+		session_start();
+	}
+	
+	if(isset($_SESSION["local"])) {
+		require_once($_SESSION["local"]);
+	}
+	else {
+		require_once("local/en.php");
+	}
+		
 ?>
 
 
