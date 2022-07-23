@@ -23,6 +23,16 @@
 <script type="text/javascript" src="cal/calendar-en.js"></script>
 <script type="text/javascript" src="cal/calendar-setup.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
+
+
+	<script src="sliderengine/jquery.js"></script>
+    <script src="sliderengine/amazingslider.js"></script>
+    <link rel="stylesheet" type="text/css" href="sliderengine/amazingslider-1.css">
+    <script src="sliderengine/initslider-1.js"></script>
+
+
+
+
 </head>
 <body>
 <div class="main">
