@@ -46,6 +46,22 @@
   Logout
   </a>
   <?php } ?>
+  
+  
+	<form action="change_language.php" method="get" id="language" style="margin-top:5px;margin-right:5px;float:right;">
+		<select name="lang" onchange="document.getElementById('language').submit();">
+			<option value="en">English</option>
+			<option value="fa">دری</option>
+			<option value="ps">پشتو</option>
+		</select>
+	</form>
+  
+  
+  
+  
+  
+  
+  
     <div class="block_header">
       <div class="logo"><a href="index.html"><img src="images/logo_1.gif" width="331" border="0" alt="logo" /></a></div>
       <div class="search">
