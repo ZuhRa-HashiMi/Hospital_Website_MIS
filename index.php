@@ -1,4 +1,47 @@
+<?php require_once("connection.php"); ?>
+<?php
+	$staff = mysqli_query($con, "SELECT * FROM staff");
+	$row_staff = mysqli_fetch_assoc($staff);
+?>
+
+
+
+
 <?php require_once("header.php");?>
+
+
+
+		
+		<div id="amazingslider-wrapper-1" style="display:block;position:relative;max-width:900px;padding-left:0px; padding-right:250px;margin:0px auto 0px;">
+        <div id="amazingslider-1" style="display:block;position:relative;margin:0 auto;">
+            <ul class="amazingslider-slides" style="display:none;">
+				<?php do { ?>
+					<li>
+						<img src="<?php echo $row_staff["photo"]; ?>" alt="<?php echo $row_staff["firstname"]; ?>" />
+					</li>
+				<?php } while($row_staff = mysqli_fetch_assoc($staff)); ?>
+            </ul>
+			
+			<?php
+				$staff = mysqli_query($con, "SELECT * FROM staff");
+				$row_staff = mysqli_fetch_assoc($staff);
+			?>
+			
+			
+            <ul class="amazingslider-thumbnails" style="display:none;">
+				<?php do { ?>
+					<li><img src="<?php echo $row_staff["photo"]; ?>" alt="<?php echo $row_staff["firstname"]; ?>" /></li>                
+				<?php } while($row_staff = mysqli_fetch_assoc($staff));  ?>
+            </ul>
+        </div>
+    </div>
+
+		<br><br>
+
+
+
+
+
 
         <h2>Welcome to our website </h2>
         <p><span>Simply dummy text of the printing and typesetting industry.</span></p>
