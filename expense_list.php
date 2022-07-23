@@ -85,7 +85,10 @@
 <table class="table table-striped">
 	<tr>
 		<th>ID</th>
-		<th>Name</th>
+		<th>Expense To</th>
+		<th>Amount</th>
+		<th>Currency</th>
+		<th>Date</th>
 		<th>Edit</th>
 		<th>Delete</th>
 	</tr>
@@ -95,7 +98,8 @@
 		<tr>
 			<td><?php echo $row_expense["expenes_id"]; ?></td>
 			<td><?php echo $row_expense["expences_to"]; ?></td>
-			<td><?php echo number_format($row_expense["amount"], 0); ?> <?php echo $row_expense["currency"]; ?></td>
+			<td><?php echo $row_expense["amount"]; ?></td>
+			<td><?php echo $row_expense["currency"]; ?></td>
 			<td><?php echo $row_expense["expenes_date"]; ?></td>
 			<?php
 				if($row_expense["currency"] == "USD") {
