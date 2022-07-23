@@ -2,7 +2,7 @@
 
 	require_once("connection.php");
 
-	if(isset($_SESSION["user_id"])) {
+	if(isset($_SESSION["USER_ID"])) {
 		header("Location:home.php");
 	}
 	
@@ -15,7 +15,7 @@
 		
 		if(mysqli_num_rows($result) == 1) {
 			$row_result = mysqli_fetch_assoc($result);
-			$_SESSION["user_id"] = $row_result["user_id"];
+			$_SESSION["USER_ID"] = $row_result["USER_ID"];
 			
 			$_SESSION["user_type"] = $row_result["user_type"];
 			$_SESSION["admin_level"] = $row_result["admin_level"];
