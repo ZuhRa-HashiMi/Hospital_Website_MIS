@@ -1,20 +1,10 @@
 <?php
 
-     $menu_home="Home":;
-	 $menu_gallery="Gallery":;
-	 $menu_services="Services":;
-	  $menu_News="News":;
-	  $menu_aboutus="About Us":;
-	   $menu_contactus="Contact Us":;
-	 
-
-
-
-
-
-
-
-
-
+	$menu_home = "صفحه اصلی";
+	$menu_gallery = "گالری";
+	$menu_services = "خدمات";
+	$menu_news = "اخبار";
+	$menu_aboutus = "درباره ما";
+	$menu_contactus = "ارتباط با ما";
 
 ?>
