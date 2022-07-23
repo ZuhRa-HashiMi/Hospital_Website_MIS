@@ -6,7 +6,7 @@
 	$absent_month = getValue($_GET["absent_month"]);
 	$absent_day = getValue($_GET["absent_day"]);
 
-	$attendance = mysqli_query($con, "SELECT * FROM attendances WHERE staff_id = $staff_id AND absent_year = $absent_year AND absent_month = $absent_month AND absent_day = $absent_day");
+	$attendance = mysqli_query($con, "SELECT * FROM attendance WHERE staff_id = $staff_id AND absent_year = $absent_year AND absent_month = $absent_month AND absent_day = $absent_day");
 	$row_attendance = mysqli_fetch_assoc($attendance);
 
 	$staff = mysqli_query($con, "SELECT * FROM staff");
