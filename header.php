@@ -1,5 +1,6 @@
-<?php 
-    if(!isset($_SESSION)) { 
+<?php
+
+	if(!isset($_SESSION)) { 
 		session_start();
 	}
 	
@@ -11,31 +12,12 @@
 	}
 		
 ?>
-
-<?php if($_SESSION["local"] != "local/en.php") { ?>
-<style type="text/css">
-* {
-	direction:rtl;
-}
-.navbar-nav li {
-	float:right;
-}
-#nav-top {
-	float:right;
-}
-</style>
-<?php } ?>
-
-
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
 <title>HMIS</title>
 <meta charset="utf-8" />
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -56,24 +38,35 @@
     <link rel="stylesheet" type="text/css" href="sliderengine/amazingslider-1.css">
     <script src="sliderengine/initslider-1.js"></script>
 
-
-
-
+<?php if($_SESSION["local"] != "local/en.php") { ?>
+<style type="text/css">
+* {
+	direction:rtl;
+}
+.navbar-nav li {
+	float:right;
+}
+#nav-top {
+	float:right;
+}
+</style>
+<?php } ?>
+	
 </head>
 <body>
 <div class="main">
   <div class="header noprint">
-  <?php if(!isset($_SESSION["user_id"])) { ?>
-  <a href="login.php" id="login" class="pull-right">
-  Login
-  </a>
-  <?php } else { ?>
-  <a href="logout.php" id="login" class="pull-right">
-  Logout
-  </a>
-  <?php } ?>
   
-  
+	<?php if(!isset($_SESSION["USER_ID"])) { ?>
+	<a href="login.php" id="login" class="pull-right">
+		Login 
+	</a>
+	<?php } else { ?>
+	<a href="logout.php" id="login" class="pull-right">
+		Logout
+	</a>
+	<?php } ?>
+	
 	<form action="change_language.php" method="get" id="language" style="margin-top:5px;margin-right:5px;float:right;">
 		<select name="lang" onchange="document.getElementById('language').submit();">
 			<option <?php if($_SESSION["local"] == "local/en.php") echo "selected"; ?> value="en">English</option>
@@ -81,12 +74,7 @@
 			<option <?php if($_SESSION["local"] == "local/ps.php") echo "selected"; ?> value="ps">پشتو</option>
 		</select>
 	</form>
-  
-  
-  
-  
-  
-  
+	
   
     <div class="block_header">
       <div class="logo"><a href="index.html"><img src="images/logo_1.gif" width="331" border="0" alt="logo" /></a></div>
@@ -98,7 +86,7 @@
           </label>
         </form>
       </div>
-      <<div class="clr"></div>
+      <div class="clr"></div>
       <div class="resize_menu">
         <div class="">
           
@@ -113,7 +101,7 @@
             </div>
             <div class="collapse navbar-collapse" id="collapse">
 			
-				<?php if(isset($_SESSION["user_id"])) { ?>
+				<?php if(!isset($_SESSION["USER_ID"])) { ?>
 			
 				<ul class="nav navbar-nav" id="nav-top">
                 	<li><a href="index.php"><?php echo $menu_home; ?></a></li>
@@ -210,7 +198,8 @@
 				<?php } ?>
             </div>  
         </nav>
-		  </div>
+		  
+        </div>
         
       </div>
       <div class="clr"></div>
