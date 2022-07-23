@@ -87,7 +87,6 @@
 		<th>ID</th>
 		<th>Expense To</th>
 		<th>Amount</th>
-		<th>Currency</th>
 		<th>Date</th>
 		<th>Edit</th>
 		<th>Delete</th>
@@ -98,8 +97,8 @@
 		<tr>
 			<td><?php echo $row_expense["expenes_id"]; ?></td>
 			<td><?php echo $row_expense["expences_to"]; ?></td>
-			<td><?php echo $row_expense["amount"]; ?></td>
-			<td><?php echo $row_expense["currency"]; ?></td>
+			<td><?php echo number_format($row_expense["amount"], 0) ; ?> <?php echo $row_expense["currency"]; ?></td>
+			
 			<td><?php echo $row_expense["expenes_date"]; ?></td>
 			<?php
 				if($row_expense["currency"] == "USD") {
@@ -113,12 +112,12 @@
 				}
 			?>
 			<td>
-				<a href="expense_edit.php?expense_id=<?php echo $row_expense["expenes_id"]; ?>">
+				<a href="expense_edit.php?expenes_id=<?php echo $row_expense["expenes_id"]; ?>">
 					<span class="glyphicon glyphicon-edit"></span>
 				</a>
 			</td>
 			<td>
-				<a class="delete" href="expense_delete.php?expense_id=<?php echo $row_expense["expenes_id"]; ?>">
+				<a class="delete" href="expense_delete.php?expenes_id=<?php echo $row_expense["expenes_id"]; ?>">
 					<span class="glyphicon glyphicon-trash"></span>
 				</a>
 			</td>
